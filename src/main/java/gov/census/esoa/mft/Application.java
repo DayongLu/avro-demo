@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-public class Application implements CommandLineRunner {
+public class Application {
 
     public static void main(String[] args) {
 
@@ -19,8 +19,8 @@ public class Application implements CommandLineRunner {
     }
 
 
-    @Override
-    public void run(String... strings) throws Exception {
-
-    }
+//    @Override
+//    public void run(String... strings) throws Exception {
+//
+//    }
 }

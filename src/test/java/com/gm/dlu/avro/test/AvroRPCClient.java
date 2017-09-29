@@ -19,7 +19,7 @@ public class AvroRPCClient {
 
 //        HttpTransceiver client = new HttpTransceiver(new URL("http", "192.168.57.129", 9090, "/"));
 
-        NettyTransceiver client = new NettyTransceiver(new InetSocketAddress("192.168.57.129",9090));
+        NettyTransceiver client = new NettyTransceiver(new InetSocketAddress("localhost",9999));
         MFTFileTransfer proxy = SpecificRequestor.getClient(MFTFileTransfer.class, client);
 
         MFTGetRequest request = new MFTGetRequest();
