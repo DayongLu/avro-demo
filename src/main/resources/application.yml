@@ -1,0 +1,43 @@
+server:
+  port: 8080
+  contextPath: /mft-consumer
+
+
+mft:
+  nettyServerPort: 9999
+  sourceFolder: D:/MFT/source
+  destinationFolder: D:/MFT/destination
+  mftCacheFileLocation: D:/MFT/source/cache.json
+
+---
+spring:
+  profiles: dev
+mft:
+  nettyServerPort: 9090
+  sourceFolder: /home/dylu/source
+  destinationFolder: /home/dylu/destination
+  mftCacheFileLocation: /home/dylu/cache.json
+---
+spring:
+  profiles: ite
+mft:
+  nettyServerPort: 9090
+  sourceFolder: change to ite source folder
+  destinationFolder: change to ite destination folder
+  mftCacheFileLocation: D:/MFT/source/cache.json
+---
+spring:
+  profiles: stg
+mft:
+  nettyServerPort: 9090
+  sourceFolder: change to stg source folder
+  destinationFolder: change to stg destination folder
+  mftCacheFileLocation: D:/MFT/source/cache.json
+---
+spring:
+  profiles: prod
+mft:
+  nettyServerPort: 9090
+  sourceFolder: change to prod source folder
+  destinationFolder: change to prod destination folder
+  mftCacheFileLocation: D:/MFT/source/cache.json

@@ -1,0 +1,51 @@
+{"namespace": "gov.census.esoa.mft.rpc",
+ "protocol": "MFTFileTransfer",
+
+ "types": [
+     {"name": "MFTPushRequest", "type": "record",
+      "fields": [
+          {"name": "clientId",   "type": "string"},
+          {"name": "fileName",   "type": "string"},
+          {"name": "offset", "type": "long"},
+          {"name": "totalSize", "type":"long"},
+          {"name": "body", "type": "bytes"},
+          {"name": "remainingSize", "type": "long"}
+      ]
+     },{"name": "MFTPushResponse", "type": "record",
+            "fields": [
+                {"name": "clientId",   "type": "string"},
+                {"name": "fileName",   "type": "string"},
+                {"name": "statusCode", "type": "int"},
+                {"name": "consumedLength", "type":"long"}
+            ]
+     },
+     {"name":"MFTGetRequest","type":"record",
+        "fields":[
+           {"name": "clientId",   "type": "string"},
+           {"name": "fileName",   "type": "string"},
+           {"name": "offset", "type": "long"},
+           {"name": "length", "type":"long"}
+        ]
+     },{"name":"MFTGetResponse","type":"record",
+        "fields":[
+           {"name": "clientId",   "type": "string"},
+           {"name": "fileName",   "type": "string"},
+           {"name": "offset", "type": "long"},
+           {"name": "body", "type": "bytes"},
+           {"name": "remainingSize", "type": "long"},
+           {"name": "totalSize", "type": "long"}
+        ]
+      }
+ ],
+
+ "messages": {
+     "receive" :{
+        "request": [{"name": "mftPushRequest", "type": "MFTPushRequest"}],
+        "response": "MFTPushResponse"
+     },
+     "get": {
+         "request": [{"name": "mftGetRequest", "type": "MFTGetRequest"}],
+         "response": "MFTGetResponse"
+     }
+ }
+}
